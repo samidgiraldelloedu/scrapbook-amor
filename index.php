@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio do Amor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #de3163;
+      --secondary: #fff5f7;
+      --text: #333;
+      --accent: #ff90b3;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--secondary);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+    }
+
+    header {
+      padding: 3rem 1rem;
+      text-align: center;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    section {
+      padding: 4rem 1rem;
+    }
+
+    .love-timer {
+      background: var(--primary);
+      color: white;
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .event-card {
+      background: white;
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+    }
+
+    .photo-gallery img {
+      border-radius: 12px;
+      width: 100%;
+      transition: transform 0.3s;
+    }
+
+    .photo-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .love-game .cell {
+      width: 80px;
+      height: 80px;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--primary);
+      cursor: pointer;
+    }
+
+    .modal-content {
+      border-radius: 12px;
+    }
+
+    .profile-section img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 1rem;
+    }
+    .photo-gallery img {
+      object-fit: cover;
+      height: 800px; /* ou 400px, ajuste como preferir */
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo-gallery .carousel {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .photo-gallery h2 {
+      font-family: 'Georgia', serif;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: invert(1); /* para deixar os ícones brancos, se necessário */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Scrapbook do Amor</h1>
+    <p class="lead"><span id="typed-text"></span></p>
+  </header>
+
+  <main class="container">
+    <section class="love-timer" data-aos="fade-up">
+      <h2>Estamos juntos há:</h2>
+      <p class="display-6">
+        <span id="anos">0</span> anos,
+        <span id="meses">0</span> meses e
+        <span id="dias">0</span> dias
+      </p>
+      <p>Desde 13 de Julho de 2024</p>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2 class="text-center mb-4">Nossa Linha do Tempo</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="event-card text-center">
+            <i class="bi bi-heart-fill fs-1"></i>
+            <h5 class="mt-2">Pedido de Namoro</h5>
+            <p>13/07/2024</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="event-card text-center">
+            <i class="bi bi-airplane fs-1"></i>
+            <h5 class="mt-2">Primeira Viagem</h5>
+            <p>02/01/2025 - Cabo Frio, RJ</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="event-card text-center">
+            <i class="bi bi-stars fs-1"></i>
+            <h5 class="mt-2">Primeiro "EU TE AMO"</h5>
+            <p>Inesquecível, na porta do CCC</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: linear-gradient(to bottom, #fff5f7, #ffe0eb);">
+      <h2 class="text-center mb-5">Nossos Futuros Sonhos</h2>
+      <div class="row text-center">
+        <div class="col-md-4 mb-4" data-aos="fade-up">
+          <div class="event-card h-100">
+            <i class="bi bi-house-heart-fill fs-1 text-danger"></i>
+            <h5 class="mt-3">Nosso Lar</h5>
+            <p>Uma casinha ou apê cheio de amor e paz.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="event-card h-100">
+            <i class="bi bi-mortarboard-fill fs-1 text-primary"></i>
+            <h5 class="mt-3">Formatura</h5>
+            <p>Juntos no palco, comemorando nossas conquistas.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="event-card h-100">
+            <i class="bi bi-briefcase-fill fs-1 text-success"></i>
+            <h5 class="mt-3">Carreiras de Sucesso</h5>
+            <p>Empregos estáveis e felizes, cada um brilhando em sua área.</p>
+          </div>
+        </div>
+        <div class="col-md-6 offset-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="event-card h-100">
+            <i class="bi bi-airplane-engines fs-1 text-info"></i>
+            <h5 class="mt-3">Viajar o Mundo</h5>
+            <p>Explorar juntos novos países, sabores e aventuras.</p>
+          </div>
+        </div>
+        <div class="col-md-6 offset-md-3" data-aos="fade-up" data-aos-delay="400">
+          <div class="event-card h-100">
+            <i class="bi bi-gem fs-1 text-warning"></i>
+            <h5 class="mt-3">Casamento dos Sonhos</h5>
+            <p>Dizer “sim” diante de Deus e das pessoas que amamos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="photo-gallery" data-aos="zoom-in">
+      <h2 class="text-center mb-4">Nosso Álbum</h2>
+      <div id="carouselFotos" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://i.imgur.com/kp1rJFa.jpeg" class="d-block w-100" alt="Foto 1">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/f3d7UXD.jpeg" class="d-block w-100" alt="Foto 2">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/36FW6Kr.jpeg" class="d-block w-100" alt="Foto 3">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/gV5fvAy.jpeg" class="d-block w-100" alt="Foto 4">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/NzcvTQ6.jpeg" class="d-block w-100" alt="Foto 5">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/Op3xr1s.jpeg" class="d-block w-100" alt="Foto 6">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/U34uPij.jpeg" class="d-block w-100" alt="Foto 7">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/14iXUjR.jpeg" class="d-block w-100" alt="Foto 8">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/r2UcvMJ.jpeg" class="d-block w-100" alt="Foto 9">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/IMfooad.jpeg" class="d-block w-100" alt="Foto 10">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/xnhfXh4.jpeg" class="d-block w-100" alt="Foto 11">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/ByH6qC2.jpeg" class="d-block w-100" alt="Foto 12">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/z4RyJMV.jpeg" class="d-block w-100" alt="Foto 13">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/vkdlczm.jpeg" class="d-block w-100" alt="Foto 14">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/FPsaNUL.jpeg" class="d-block w-100" alt="Foto 15">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.imgur.com/2e6xJIa.jpeg" class="d-block w-100" alt="Foto 16">
+          </div>
+        </div>
+
+        <!-- Botões de navegação corretos -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselFotos" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselFotos" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Próximo</span>
+        </button>
+      </div>
+    </section>
+
+
+    <section class="profile-section" data-aos="fade-up">
+      <h2 class="text-center mb-4">Quem Somos ?</h2>
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <img src="https://i.imgur.com/yoTZymd.png" alt="Samid">
+          <h4>Samid</h4>
+          <p>Namorada profissional: chata de nível avançado, mestra em drama, doutora em bico e especialista em “faz o que eu quero, sim!”. Mimada com orgulho, cheia de manias fofas (e umas nem tanto), mas com um coração gigante que transborda amor. Responsável por programar esse site e, de quebra, invadir o coração do meu engenheiro favorito pra sempre! Futura Esposa💘</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="https://i.imgur.com/FdPeYug.png" alt="Lucas">
+          <h4>Lucas</h4>
+          <p>Namorado profissional: chato em tempo integral, enjoado nível master, mimado até a alma e meu frango preferido que acha que tem que treinar mais sempre. Minha cara de broa, especialista em me irritar só pra depois fingir que não fez nada. Dono de todos os banhos, mas ao mesmo tempo suador profissional.Responsável por capturar o coração da TI… e nunca mais devolver! Futuro esposo 💘</p>
+        </div>
+      </div>
+      <p class="text-center mt-4">Este site foi feito com muito carinho por Samid para Lucas :)</p>
+    </section>
+
+    <section class="love-game text-center" data-aos="zoom-in">
+      <h2 class="mb-4">Jogo da Velha do Amor</h2>
+      <div class="d-inline-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px;">
+        <div class="cell" onclick="jogar(this)"></div>
+        <div class="cell" onclick="jogar(this)"></div>
+        <div class="cell" onclick="jogar(this)"></div>
+        <div class="cell" onclick="jogar(this)"></div>
+        <div class="cell" onclick="jogar(this)"></div>
+        <div class="cell" onclick="jogar(this)"></div>
+        <div class="cell" onclick="jogar(this)"></div>
+        <div class="cell" onclick="jogar(this)"></div>
+        <div class="cell" onclick="jogar(this)"></div>
+      </div>
+      <button class="btn btn-sm btn-outline-primary mt-3" onclick="reiniciarJogo()">Reiniciar</button>
+    </section>
+
+    <section class="text-center" data-aos="fade-up">
+      <h2>Mensagem para o Lucas</h2>
+      <p class="lead">Obrigada por tudo, por ser você, por nos amar. Eu amo te amar, meu amor, meu melhor amigo, meu companheiro!!!.</p>
+      <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalMensagem">Abra sua carta</button>
+    </section>
+  </main>
+
+  <div class="modal fade" id="modalMensagem" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Para Lucas ❤️</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p class="poema">
+  Amor dos Deuses – em poesia
+
+  Esse amor é um caso sério,  
+  Um amor de corpo, alma e coração.  
+  Feito de paixão, sentimento e muito mais,  
+  É o amor dos deuses, coisa de cinema,  
+  Que mexe com a minha cabeça  
+  E me faz fazer poemas.
+
+  Tira os pés do chão, me leva pro céu,  
+  Faz de um simples mortal um verdadeiro réu  
+  Desse amor gostoso, amor sem pecado,  
+  Amor abençoado, doce como mel,  
+  Que me dá prazer, que me dá razão,  
+  Que alucina, domina o meu coração.
+
+  É tão lindo esse amor  
+  Que nasceu pra nós dois...
+
+  Amor assim  
+  Não é comum, é raro.  
+  Tem gosto de felicidade,  
+  Um sonho, um presente dos deuses,  
+  Um caso de amor de verdade.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+  .poema {
+    white-space: pre-line;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #000000;
+    text-align: center;
+  }
+  </style>
+
+  <!-- Google Fonts: Dancing Script -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    AOS.init();
+
+    new Typed('#typed-text', {
+      strings: ['Nossa história de amor 💖', 'Lucas & Samid', 'Para sempre juntos!'],
+      typeSpeed: 50,
+      backSpeed: 25,
+      loop: true
+    });
+
+    const dataInicio = new Date('2024-07-13');
+    const hoje = new Date();
+    const diff = hoje - dataInicio;
+    const diasTotal = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById('anos').textContent = Math.floor(diasTotal / 365);
+    document.getElementById('meses').textContent = Math.floor((diasTotal % 365) / 30);
+    document.getElementById('dias').textContent = diasTotal % 30;
+
+    let jogadorAtual = '❤️';
+    const celulas = document.querySelectorAll('.cell');
+
+    function verificarVitoria() {
+      const combinacoes = [
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
+      ];
+      return combinacoes.some(c => {
+        const [a,b,c2] = c;
+        return celulas[a].textContent &&
+               celulas[a].textContent === celulas[b].textContent &&
+               celulas[a].textContent === celulas[c2].textContent;
+      });
+    }
+
+    function jogar(casa) {
+      if (!casa.textContent) {
+        casa.textContent = jogadorAtual;
+        if (verificarVitoria()) {
+          setTimeout(() => alert(`${jogadorAtual} venceu!`), 100);
+          return;
+        }
+        jogadorAtual = jogadorAtual === '❤️' ? '🌟' : '❤️';
+      }
+    }
+
+    function reiniciarJogo() {
+      celulas.forEach(c => c.textContent = '');
+      jogadorAtual = '❤️';
+    }
+  </script>
+</body>
+</html>
+  
